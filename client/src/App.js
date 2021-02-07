@@ -25,8 +25,33 @@ class App extends Component {
     }
   }
 
+  onChange = e =>{
+    this.setState({[e.target.name]:e.target.value});
+  };
+
+  async componentDidMount(){
+    try{
+      const response = await fetch('https://test-assignment1.herokuapp.com/allpost');
+      const data = await response.json();
+
+      this.setState({allpost:data});
+    }catch(error){
+
+    }
+  }
+
   render() {
-    const {text} = this.state;
+    const {text, allpost, data} = this.state;
+    const alldata=(
+    <div>
+      {allpost.map((data, index)=>(
+        <p>
+          Post: {data.text}
+          Date: {data.date}!
+        </p>
+      ))}
+    </div>
+    );
     return (
       <div className="text">
         <div className="container">
@@ -43,6 +68,8 @@ class App extends Component {
                 />
               <input type="submit" className="btn btn-dark btn-block mt-4"/>
               </form>
+              <h1>All latest post</h1>
+              {alldata}
             </div>
           </div>
         </div>
