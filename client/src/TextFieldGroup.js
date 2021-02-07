@@ -8,6 +8,8 @@ const TextFieldGroup=(props)=> {
         placeholder,
         disabled,
         value,
+        error,
+        info,
         onChange
     } = props
     return (

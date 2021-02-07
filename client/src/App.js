@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import TextFieldGroup from './TextFieldGroup';
 
 class App extends Component {
   state = {
@@ -33,10 +34,15 @@ class App extends Component {
             <div className="col-md-8 m-auto">
               <h1 className="display -4 text-center">Assignment</h1>
               <form onSubmit = {this.onSubmit}>
+                <TextFieldGroup
+                name="text"
+                placeholder="Post"
+                value={text}
+                onChange= {this.onChange}
+                type="text"
+                />
               <input type="submit" className="btn btn-dark btn-block mt-4"/>
               </form>
-              
-
             </div>
           </div>
         </div>
