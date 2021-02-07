@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json());
 
 app.post('/addpost', Posts.post);
+app.get('/alldata', Posts.getAllPosts);
 
 mongoose.connect(process.env.DATABASE_CLOUD,{userNewurlParser:true})
 .then(()=>console.log('DB connected'))

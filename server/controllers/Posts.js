@@ -13,3 +13,15 @@ exports.post= async(req, res) => {
         res.status(500).send("Something went wrong");
     }
 }
+
+//AllPosts
+exports.getAllPosts = async(req, res) => {
+    const posts=await Post.find({});
+
+    if(!posts){
+        return res.status(404).sned({
+            errors:[{title:"Post found error", detail:"Post not found"}]
+        })
+    }
+    res.send(posts)
+}
