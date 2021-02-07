@@ -3,12 +3,15 @@ const mongoose = require("mongoose")
 const bodyParser = require('body-parser')
 const app = express()
 const morgan = require("morgan")
+const Posts= require('./controllers/Posts')
 
 require('dotenv').config();
 
 app.use(morgan());
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json());
+
+app.post('/addpost', Posts.post);
 
 mongoose.connect(process.env.DATABASE_CLOUD,{userNewurlParser:true})
 .then(()=>console.log('DB connected'))
