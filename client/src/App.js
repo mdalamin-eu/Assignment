@@ -35,6 +35,7 @@ class App extends Component {
       const data = await response.json();
 
       this.setState({allpost:data});
+      this.componentDidMount()
     }catch(error){
 
     }
@@ -46,8 +47,7 @@ class App extends Component {
     <div>
       {allpost.map((data, index)=>(
         <p>
-          Post: {data.text}
-          Date: {data.date}!
+          Post: {data.text} Date: {data.date}!
         </p>
       ))}
     </div>
