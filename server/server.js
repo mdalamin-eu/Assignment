@@ -4,6 +4,10 @@ const bodyParser = require('body-parser')
 const app = express()
 const morgan = require("morgan")
 const Posts= require('./controllers/Posts')
+var cors=require('cors');
+
+app.use(cors({credentials:true, origin:true}));
+app.options('*', cors());
 
 require('dotenv').config();
 
