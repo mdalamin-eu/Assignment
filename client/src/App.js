@@ -17,6 +17,7 @@ class App extends Component {
         headers:{'Content-Type':'application/json'},
         body:JSON.stringify({text})
       };
+      
       const response = await fetch('https://test-assignment1.herokuapp.com/addpost', requestOption);
       const data = await response.json();
       this.setState({data});
