@@ -20,6 +20,7 @@ class App extends Component {
       const response = await fetch('https://test-assignment1.herokuapp.com/addpost', requestOption);
       const data = await response.json();
       this.setState({data});
+      this.componentDidMount()
     } catch(error){
 
     }
@@ -33,9 +34,8 @@ class App extends Component {
     try{
       const response = await fetch('https://test-assignment1.herokuapp.com/allpost');
       const data = await response.json();
-
       this.setState({allpost:data});
-      this.componentDidMount()
+      
     }catch(error){
 
     }
